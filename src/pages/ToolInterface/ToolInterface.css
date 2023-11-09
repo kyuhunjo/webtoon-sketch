@@ -1,0 +1,59 @@
+/* ToolInterface.css */
+
+.tool-interface {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#webtoonCanvas {
+    border: 2px solid #000;
+    height: 600px; /* Adjust as needed */
+    flex: 1; /* Canvas takes the remaining space */
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-basis: 200px; /* Fixed width for the toolbar */
+}
+
+.tool-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.tool-button {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.tool-button:hover {
+    background-color: #e4e4e4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .toolbar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tool-button {
+        flex-basis: calc(50% - 10px); /* Adjust the button width on smaller screens */
+    }
+
+    #webtoonCanvas {
+        width: 100%; /* Full width on smaller screens */
+        height: 400px; /* Adjust height as needed for smaller devices */
+    }
+}

@@ -1,0 +1,73 @@
+/* General styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Utility classes */
+.primary-button, .secondary-button, .demo-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.primary-button {
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+}
+
+.primary-button:hover {
+    background-color: #e33f00;
+}
+
+.secondary-button {
+    background-color: transparent;
+    color: #333;
+    border: 2px solid #333;
+}
+
+.secondary-button:hover {
+    border-color: #ff4500;
+}
+
+.demo-button {
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    display: inline-block; /* For alignment */
+    margin-top: 20px;
+}
+
+.demo-button:hover {
+    background-color: #e33f00;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    margin-right: 20px;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .feature-list, .testimonial {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* ... other global styles ... */

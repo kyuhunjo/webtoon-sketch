@@ -1,0 +1,31 @@
+/* About.css for the About component */
+
+.information-content {
+    padding: 20px;
+}
+
+.our-story, .mission-statement {
+    margin-bottom: 40px;
+}
+
+.visual-timeline {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.timeline {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-event {
+    margin-bottom: 20px;
+}
+
+.timeline-event h3 {
+    font-size: 1.2rem;
+    color: #ff4500;
+}
+
+/* You can add more styles or modify existing ones as needed */
