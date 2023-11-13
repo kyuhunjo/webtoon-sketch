@@ -1,5 +1,6 @@
 // Home.js
 import React from 'react';
+import Hero from '../components/Hero/Hero';
 import './Home.css';
 import icon1 from '../../images/icon1.png';
 import icon2 from '../../images/icon2.png';
@@ -7,12 +8,7 @@ import icon2 from '../../images/icon2.png';
 function Home() {
   return (
     <main className="home-content">
-      <section className="hero">
-        <h1 className="hero-heading">Welcome to Webtoon Sketching Tool</h1>
-        <p className="hero-subheading">Unleash your creativity with our AI-powered sketching tool.</p>
-        <button className="primary-button">Get Started</button>
-      </section>
-
+      <Hero />
       <section className="features">
         <h2>Amazing Features</h2>
         <div className="feature-list">

@@ -1,30 +1,39 @@
 import React from 'react';
-import './About.css';
+import './About.css'; // Assuming you have an About.css for styles
 
-function About() {
-  return (
-    <div className="information-content">
-      <section className="our-story">
-        <h1>Our Story</h1>
-        <p>Here is our story...</p>
-      </section>
-      <section className="mission-statement">
-        <h1>Our Mission</h1>
-        <p>Our mission is to...</p>
-      </section>
-      <section className="visual-timeline">
-        <h1>Timeline</h1>
-        <ul className="timeline">
-          <li className="timeline-event">
-            <h3>Year One</h3>
-            <p>Details about the first year...</p>
-          </li>
-          {/* Add more timeline events here */}
-        </ul>
-      </section>
-      {/* More sections can be added here if needed */}
-    </div>
-  );
-}
+const About = () => {
+    return (
+        <div className="About">
+            <main className="information-content">
+                <section id="our-story" className="our-story">
+                    <h2>Our Story</h2>
+                    <p>Webtoon Sketch began as a passion project in 2017, born from a desire to empower digital artists and storytellers. Our team of developers and artists have worked tirelessly to bring you the tools you need to bring your webtoons to life.</p>
+                    {/* Additional content as needed */}
+                </section>
+                
+                <section id="mission-statement" className="mission-statement">
+                    <h2>Our Mission</h2>
+                    <p>Our mission is to democratize webtoon creation, making it accessible and enjoyable for artists of all skill levels. We're dedicated to providing a platform where creativity knows no bounds.</p>
+                    {/* Additional content as needed */}
+                </section>
+                
+                <section id="visual-timeline" className="visual-timeline">
+                    <h2>Our Journey</h2>
+                    <ul className="timeline">
+                        <li className="timeline-event">
+                            <h3>2017</h3>
+                            <p>The idea for Webtoon Sketch was conceived.</p>
+                        </li>
+                        <li className="timeline-event">
+                            <h3>2018</h3>
+                            <p>Our first prototype was released and met with positive feedback from early adopters.</p>
+                        </li>
+                        {/* Add more timeline events as necessary */}
+                    </ul>
+                </section>
+            </main>
+        </div>
+    );
+};
 
 export default About;

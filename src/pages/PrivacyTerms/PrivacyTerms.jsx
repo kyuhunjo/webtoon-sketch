@@ -1,22 +1,24 @@
 import React from 'react';
-import './PrivaceTerms.css';
+import './PrivacyTerms.css'; // Assuming you have a CSS file for PrivacyTerms
 
-function PrivacyTerms() {
-  return (
-    <div className="privacy-terms">
-      <h1>Privacy & Terms</h1>
-      <section>
-        <h2>Privacy Policy</h2>
-        <p>Your privacy is important to us. This is our privacy policy.</p>
-        {/* Add more privacy policy content here */}
-      </section>
-      <section>
-        <h2>Terms of Service</h2>
-        <p>These are our terms of service. Please read them carefully.</p>
-        {/* Add more terms of service content here */}
-      </section>
-    </div>
-  );
-}
+const PrivacyTerms = () => {
+    return (
+        <div className="privacy-terms">
+            <main className="legal-content">
+                <section id="privacy-policy" className="privacy-policy">
+                    <h2>Privacy Policy</h2>
+                    <p>This privacy policy explains how we handle your personal information and data...</p>
+                    {/* Additional content */}
+                </section>
+                
+                <section id="terms-of-use" className="terms-of-use">
+                    <h2>Terms of Use</h2>
+                    <p>The following terms and conditions govern all use of the Webtoon Sketching Tool website...</p>
+                    {/* Additional content */}
+                </section>
+            </main>
+        </div>
+    );
+};
 
 export default PrivacyTerms;

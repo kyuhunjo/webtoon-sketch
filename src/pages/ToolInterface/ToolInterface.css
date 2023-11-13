@@ -1,18 +1,21 @@
-/* ToolInterface.css */
-
+/* Main container for the tool interface */
 .tool-interface {
-    padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: start;
+    padding: 20px;
+    gap: 20px;
+    background-color: #f8f8f8;
 }
 
+/* Styles for the canvas */
 #webtoonCanvas {
     border: 2px solid #000;
-    height: 600px; /* Adjust as needed */
-    flex: 1; /* Canvas takes the remaining space */
+    height: 600px; /* Adjust height as needed */
+    flex-grow: 1; /* Canvas takes the remaining space */
 }
 
+/* Toolbar styling */
 .toolbar {
     display: flex;
     flex-direction: column;
@@ -20,11 +23,14 @@
     flex-basis: 200px; /* Fixed width for the toolbar */
 }
 
+/* Tool group styling */
 .tool-group {
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
+/* Tool button styling */
 .tool-button {
     background-color: #f7f7f7;
     border: 1px solid #ddd;
@@ -40,20 +46,22 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive adjustments */
+/* Responsive design adjustments */
 @media (max-width: 768px) {
-    .toolbar {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .tool-button {
-        flex-basis: calc(50% - 10px); /* Adjust the button width on smaller screens */
+    .tool-interface {
+        flex-direction: column;
+        align-items: center;
     }
 
     #webtoonCanvas {
         width: 100%; /* Full width on smaller screens */
-        height: 400px; /* Adjust height as needed for smaller devices */
+        height: 400px; /* Adjust height as needed */
+    }
+
+    .toolbar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }

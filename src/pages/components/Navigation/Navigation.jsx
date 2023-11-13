@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../images/logo.jpg';
+import logo from '../../../images/logo.jpg'
 import { Link } from 'react-router-dom';
 import './Navigation.css';
 
@@ -7,7 +7,7 @@ const Navigation = () => {
   return (
     <nav>
       <div className="logo">
-        <img src={ logo } alt="Webtoon Sketch Logo" />
+        <img src={ logo } alt="Webtoon Sketch Logo" width="200" height="50" />
       </div>
       <div className="nav-links">
         <Link to="/">Home</Link>

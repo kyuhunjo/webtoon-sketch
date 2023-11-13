@@ -1,73 +1,65 @@
-/* General styles */
-body, html {
+/* Global Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-}
-
-/* Utility classes */
-.primary-button, .secondary-button, .demo-button {
-    padding: 10px 20px;
     font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.primary-button {
-    background-color: #ff4500;
-    color: #fff;
-    border: none;
-}
-
-.primary-button:hover {
-    background-color: #e33f00;
-}
-
-.secondary-button {
-    background-color: transparent;
+    line-height: 1.6;
     color: #333;
-    border: 2px solid #333;
+    background-color: #f4f4f4;
 }
 
-.secondary-button:hover {
-    border-color: #ff4500;
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
-.demo-button {
-    background-color: #ff4500;
-    color: #fff;
-    border: none;
-    display: inline-block; /* For alignment */
-    margin-top: 20px;
+p {
+    margin-bottom: 1rem;
 }
 
-.demo-button:hover {
-    background-color: #e33f00;
-}
-
-/* Navigation styles */
-nav {
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.nav-links a {
+/* Links */
+a {
+    color: #0275d8;
     text-decoration: none;
-    color: #333;
-    margin-right: 20px;
 }
 
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    .feature-list, .testimonial {
-        flex-direction: column;
-        align-items: center;
-    }
+a:hover, a:focus {
+    color: #0256b3;
 }
 
-/* ... other global styles ... */
+/* Buttons */
+button {
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Containers and Wrappers */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Add more global styles as needed... */
