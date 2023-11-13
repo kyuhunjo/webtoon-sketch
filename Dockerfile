@@ -1,15 +1,17 @@
-FROM node:16 AS builder
-WORKDIR /app
-COPY ./package* .
+FROM node:latest
+WORKDIR /usr/src/app
+COPY ./package*.json ./
 RUN npm install
 
-COPY . .
+COPY . /usr/src/app
 RUN npm run build
 
-FROM nginx:stable-alpine
+
+FROM nginx:latest
 RUN rm -rf /etc/nginx/conf.d
 COPY ./nginx /etc/nginx
 
-COPY --from=builder ./build /user/share/nginx/html
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html
+
 EXPOSE 80
 CMD [ "nginx", "-g", "daemon off;" ]
