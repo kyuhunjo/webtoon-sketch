@@ -1,15 +1,65 @@
-nav {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
 }
 
-.nav-links a {
+.navbar .logo img {
+    height: auto;
+    width: 100px; /* Adjust as needed */
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li a {
     text-decoration: none;
     color: #333;
-    margin-right: 20px;
-    /* Add additional styles */
+    padding: 10px 15px;
+    display: block;
+}
+
+/* Mobile menu toggle button */
+.mobile-nav-toggle {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #f8f8f8; /* Light background for the dropdown */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-top: 1px solid #ddd; /* Subtle border for the top */
+        z-index: 1000; /* Ensures dropdown is above other content */
+    }
+
+    .navbar .nav-links.expanded {
+        display: flex;
+    }
+
+    .navbar .nav-links li a {
+        padding: 10px 20px; /* More padding for touch targets */
+        border-bottom: 1px solid #eee; /* Separator between items */
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+    }
 }

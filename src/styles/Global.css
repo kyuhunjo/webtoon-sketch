@@ -62,4 +62,36 @@ button {
     display: none;
 }
 
-/* Add more global styles as needed... */
+/* Responsive Typography */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Adjust as needed */
+    }
+
+    h2 {
+        font-size: 1.3rem; /* Adjust as needed */
+    }
+
+    /* Continue for other headings */
+}
+
+/* Responsive Containers */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+}
+
+/* Responsive Buttons */
+@media (max-width: 600px) {
+    button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Add more responsive styles as needed... */
