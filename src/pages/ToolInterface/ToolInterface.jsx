@@ -1,52 +1,94 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './ToolInterface.css';
 
 const ToolInterface = () => {
     const canvasRef = useRef(null);
-    let isDrawing = false;
+    const [isDrawing, setIsDrawing] = useState(false);
+    const [context, setContext] = useState(null);
+    const [drawHistory, setDrawHistory] = useState([]);
+    const [currentTool, setCurrentTool] = useState('pencil');
 
     useEffect(() => {
         const canvas = canvasRef.current;
-        const context = canvas.getContext('2d');
-        // Add more canvas setup here if needed
+        setContext(canvas.getContext('2d'));
+    }, []);
 
-        const startDrawing = (event) => {
-            isDrawing = true;
-            
-            context.beginPath();
-            context.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
+    useEffect(() => {
+        const handleDrawing = (event) => {
+            const x = event.clientX - canvasRef.current.offsetLeft;
+            const y = event.clientY - canvasRef.current.offsetTop;
+
+            if (isDrawing) {
+                context.lineTo(x, y);
+                context.stroke();
+            }
         };
 
-        const draw = (event) => {
-            if (!isDrawing) return;
-            context.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
-            context.stroke();
-        };
+        if (context) {
+            context.lineJoin = 'round';
+            context.lineCap = 'round';
+            context.lineWidth = 2; // Adjust as needed
 
-        const stopDrawing = () => {
-            isDrawing = false;
-            context.closePath();
-        };
+            if (currentTool === 'pencil') {
+                context.strokeStyle = 'black'; // Pencil color
+            } else if (currentTool === 'eraser') {
+                context.strokeStyle = 'white'; // Eraser color (assumes a white canvas)
+            }
 
-        canvas.addEventListener('mousedown', startDrawing);
-        canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('mouseup', stopDrawing);
-        canvas.addEventListener('mouseout', stopDrawing);
+            canvasRef.current.addEventListener('mousemove', handleDrawing);
+        }
 
         return () => {
-            canvas.removeEventListener('mousedown', startDrawing);
-            canvas.removeEventListener('mousemove', draw);
-            canvas.removeEventListener('mouseup', stopDrawing);
-            canvas.removeEventListener('mouseout', stopDrawing);
+            canvasRef.current.removeEventListener('mousemove', handleDrawing);
         };
-    }, []);
+    }, [isDrawing, context, currentTool]);
+
+    const startDrawing = (event) => {
+        setIsDrawing(true);
+        context.beginPath();
+        context.moveTo(
+            event.clientX - canvasRef.current.offsetLeft,
+            event.clientY - canvasRef.current.offsetTop
+        );
+    };
+
+    const stopDrawing = () => {
+        setIsDrawing(false);
+        setDrawHistory([...drawHistory, context.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height)]);
+    };
+
+    const handleToolChange = (tool) => {
+        setCurrentTool(tool);
+    };
+
+    const undoLastAction = () => {
+        if (drawHistory.length > 0) {
+            context.putImageData(drawHistory[drawHistory.length - 1], 0, 0);
+            setDrawHistory(drawHistory.slice(0, -1));
+        }
+    };
 
     return (
         <div className="tool-interface">
             <div className="canvas-container">
-                <canvas ref={canvasRef} id="webtoonCanvas" width={800} height={600}></canvas>
+                <canvas
+                    ref={canvasRef}
+                    id="webtoonCanvas"
+                    width={800}
+                    height={600}
+                    onMouseDown={startDrawing}
+                    onMouseUp={stopDrawing}
+                    onMouseOut={stopDrawing}
+                ></canvas>
                 <aside id="toolbar" className="toolbar">
-                    {/* Toolbar buttons */}
+                    <div className="tool-group">
+                        <button className="tool-button" onClick={() => handleToolChange('pencil')}>Pencil</button>
+                        <button className="tool-button" onClick={() => handleToolChange('eraser')}>Eraser</button>
+                    </div>
+                    <div className="tool-group">
+                        <button className="tool-button" onClick={undoLastAction}>Undo</button>
+                        {/* Redo functionality can be added similarly if needed */}
+                    </div>
                 </aside>
             </div>
         </div>
