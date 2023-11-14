@@ -18,18 +18,18 @@ function App() {
     <div>
       <Navigation />
         <Switch>
-          <Route exact path="/ws/" component={Home} />
-          <Route path="/ws/about" component={About} />
-          <Route path="/ws/features" component={Features} />
-          <Route path="/ws/tool-interface" component={ToolInterface} />
-          <Route path="/ws/learning-center" component={LearningCenter} />
-          <Route path="/ws/community" component={Community} />
-          <Route path="/ws/contact-support" component={ContactSupport} />
-          <Route path="/ws/privacy-terms" component={PrivacyTerms} />
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/features" component={Features} />
+          <Route path="/tool-interface" component={ToolInterface} />
+          <Route path="/learning-center" component={LearningCenter} />
+          <Route path="/community" component={Community} />
+          <Route path="/contact-support" component={ContactSupport} />
+          <Route path="/privacy-terms" component={PrivacyTerms} />
           {/* Add additional routes here */}
           {/* If you have a 404 page, it should be the last Route */}
           {/* <Route component={NotFound} /> */}
-          <Redirect to="/ws/" />
+          <Redirect to="/" />
         </Switch>
       <Footer />
     </div>
