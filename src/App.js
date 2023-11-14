@@ -29,7 +29,7 @@ function App() {
           {/* Add additional routes here */}
           {/* If you have a 404 page, it should be the last Route */}
           {/* <Route component={NotFound} /> */}
-          <Redirect to="/ws" />
+          <Redirect to="/ws/" />
         </Switch>
       <Footer />
     </div>

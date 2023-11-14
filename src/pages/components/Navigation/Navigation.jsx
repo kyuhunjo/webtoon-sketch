@@ -22,13 +22,13 @@ const Navigation = () => {
         ☰
       </button>
       <ul className={`nav-links ${isNavExpanded ? 'expanded' : ''}`}>
-        <li><Link to="/ws">Home</Link></li>
-        <li><Link to="/ws/About">About</Link></li>
-        <li><Link to="/ws/ToolInterface">Tool Interface</Link></li>
-        <li><Link to="/ws/LearningCenter">Learning Center</Link></li>
-        <li><Link to="/ws/Community">Community</Link></li>
-        <li><Link to="/ws/ContactSupport">Support</Link></li>
-        <li><Link to="/ws/PrivacyTerms">Privacy & Terms</Link></li>
+        <li><Link to="/ws/">Home</Link></li>
+        <li><Link to="/ws/about">About</Link></li>
+        <li><Link to="/ws/tool-interface">Tool Interface</Link></li>
+        <li><Link to="/ws/learning-center">Learning Center</Link></li>
+        <li><Link to="/ws/community">Community</Link></li>
+        <li><Link to="/ws/contact-support">Support</Link></li>
+        <li><Link to="/ws/privacy-terms">Privacy & Terms</Link></li>
         <button id="logIn" className="secondary-button">Log In</button>
       </ul>
     </nav>
